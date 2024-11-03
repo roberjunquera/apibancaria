@@ -7,8 +7,11 @@ WORKDIR /app
 # Copiar los archivos de la aplicación al contenedor
 COPY . /app
 
-# Instalar las dependencias
-RUN pip install --no-cache-dir Flask
+# Instalar curl y las dependencias de la aplicación
+RUN apt-get update && \
+    apt-get install -y curl && \
+    pip install --no-cache-dir Flask && \
+    apt-get clean
 
 # Exponer el puerto 5001
 EXPOSE 5001
