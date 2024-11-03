@@ -2,11 +2,12 @@ apiVersion: v1
 kind: Service
 metadata:
   name: api-bancaria
+  namespace: api-bancaria
 spec:
   type: NodePort
+  ports:
+    - port: 5001       # Puerto en el que el servicio escucha
+      targetPort: 5001 # Puerto en el que la aplicación escucha
+      nodePort: 30002   # Puerto expuesto para acceso externo
   selector:
     app: api-bancaria
-  ports:
-    - port: 5001
-      targetPort: 5001
-      nodePort: 30002
