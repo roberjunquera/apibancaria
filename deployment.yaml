@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-bancaria
+  labels:
+    app: api-bancaria
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: api-bancaria
+  template:
+    metadata:
+      labels:
+        app: api-bancaria
+    spec:
+      containers:
+      - name: api-bancaria
+        image: roberaj/api-bancaria:latest
+        ports:
+        - containerPort: 5001
