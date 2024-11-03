@@ -16,6 +16,14 @@ spec:
     spec:
       containers:
       - name: api-bancaria
-        image: roberaj/api-bancaria:latest
+        image: roberaj/api-bancaria1:latest
         ports:
         - containerPort: 5001
+        resources:            # Opcional, pero recomendable
+          requests:
+            memory: "256Mi"  # Puedes ajustar esto según lo que necesites
+            cpu: "500m"      # Puedes ajustar esto según lo que necesites
+          limits:
+            memory: "512Mi"  # Puedes ajustar esto según lo que necesites
+            cpu: "1"         # Puedes ajustar esto según lo que necesites
+
